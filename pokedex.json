@@ -1,0 +1,20 @@
+{
+    "types": [
+        "eau",
+        "feu",
+        "plante",
+        "insecte",
+        "normal",
+        "vol",
+        "éléectrique",
+        "sol",
+        "roche",
+        "glace",
+        "combat ",
+        "poison",
+        "psy",
+        "spectre",
+        "tenebres",
+        "vol"
+    ]
+}
