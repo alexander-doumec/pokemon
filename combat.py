@@ -9,4 +9,7 @@ class Combat:
     def calculer_degats(self):
         type_adversaire = self.adversaire_pokemon.type
         
-        
+
+class Type:
+    """toute les resistance"""
+
