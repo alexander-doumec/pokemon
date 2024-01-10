@@ -25,7 +25,7 @@ menu.add.button("Jouer", start_game)
 menu.add.button("Quitter", pygame_menu.events.EXIT)
 
 #charger l'image de fond 
-image_fond = pygame_menu.BaseImage('image/pokeball.jpg', drawing_mode=pygame_menu.baseimage.IMAGE_MODE_FILL)
+image_fond = pygame_menu.BaseImage('image/pokeball.jpg', drawing_mode=pygame_menu.baseimage.IM
 
 #Appliquer l'image de fond au menu 
 menu.set_background_image(image_fond, alpha=0.5)
