@@ -1,47 +1,58 @@
-import pygame  
-import pygame_menu  
-
+import pygame
+import sys
 
 pygame.init()
 
-width, heigth = 800, 600 
-window = pygame.display.set_mode((width, heigth))
-pygame.display.set_caption("Menu avec Pygame Menu")
+lageur_fenetre = 600
+hauteur_fenetre = 400
+fenetre = pygame.display.set_mode((lageur_fenetre, hauteur_fenetre))
+pygame.display.set_caption("Pokémon")
 
-#definir les couleurs 
+#Couleurs
+
 blanc = (255, 255, 255)
-noir = (0, 0, 0)
+rouge = (255, 0, 0)
 
-#fonction a exécuter lorsque le bouton jouer esr cliqué
-def start_game():
-    print("Lancement du Jeu !")
+#Police
 
-#création du menu 
-menu = pygame_menu.Menu("Pygame Menu", width, heigth, theme=pygame_menu.themes.THEME_DARK)
+police = pygame.font.Font(None, 36)
 
-"Ajout des boutons Jouer avec action associé et quitter pour fermer le menu"
-menu.add.button("Jouer", start_game)
+#Fonction pour afficher le texte sur le bouton
+def afficher_texte_bouton(texte, couleur, position):
+    texte_surface = police.render(texte, True, couleur)
+    text_rect = texte_surface.get_rect(center=position)
+    fenetre.blit((texte_surface, text_rect))
+    
+#boucle principale
 
-menu.add.button("Quitter", pygame_menu.events.EXIT)
-
-#charger l'image de fond 
-image_fond = pygame_menu.BaseImage('image/pokeball.jpg', drawing_mode=pygame_menu.baseimage.IM
-
-#Appliquer l'image de fond au menu 
-menu.set_background_image(image_fond, alpha=0.5)
-
-#Boucle principale
-    #effacer l'écran
 while True:
-    window.fill(blanc)
-
-    #traiter les evenements
+    fenetre.fill(blanc)
+    
+    #gestion des évenements
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+        if event.type == pygame.Quit:
             pygame.quit()
-            exit()
+            sys.exit()
+            
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            x, y = event.pos
+            
+            #verifications des clic sur le bouton 
+            if 100 < x < 300 and 120 < y < 100:
+                print("Jouer")
+                #code pour lancer le jeu
+                
+            elif 100 < x < 300 and 100 < y < 170:
+                print("Pokedex")
+                #mettre le code pour affciher le pokédex
+            
+            elif 100 < x < 300 and 190 < y < 240:
+                print("Quitter")
+                pygame.quit()
+                sys.exit()
+                
+#afficher les boutons 
 
-    #Afficher le menu
-    menu.mainloop(window)
-    #mettre a jour l'affichage
-    pygame.display.flip()
+    pygame.draw.rect(fenetre, noir, (100, 50, 200, 50))
+    afficher_texte_bouton("Jouer, ")
+                 

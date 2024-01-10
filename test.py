@@ -1,119 +1,75 @@
-__all__ = ['main']
-
+from Button import button
 import pygame
-import pygame_menu
-from pygame_menu.examples import create_example_window
 
-from typing import Optional
+class gamestage:
+    def __init__(self,bgImage,window, initialX, initialY,stage):
+        self.bgImage = bgImage
+        self.window = window
+        self.bgCoords = [initialX,initialY]
+        self.stage = stage
+        self.width = 600
+        self.height = 600
 
-#constantes de la fenetre
-FPS = 60
-WINDOW_SIZE = (1080 , 800)
+    def mainMenu(self, paleLavander, lightRed , green,event):
+        mouse = pygame.mouse.get_pos()
+        playButton = button(self.window,paleLavander,75,480,100,50,"PLAY")
+        moreButton = button(self.window,paleLavander,425,480,100,50,"MORE")
 
-sound: Optional['pygame_menu.sound.Sound'] = None
-surface: Optional['pygame.Surface'] = None
-main_menu: Optional['pygame_menu.Menu'] = None
+        playButton.draw()
+        moreButton.draw()
 
-# charger l'image en fond
-background_image = pygame_menu.BaseImage(
-    image_path='pokeball.jpg'
-)
+        if playButton.hover(mouse):
+            playButton.color = green
+            playButton.draw()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                self.stage = "createPlayer"
 
+        if moreButton.hover(mouse):
+            moreButton.color = green
+            moreButton.draw()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                self.stage = "optionsMenu"
 
-def main_background() -> None:
-    """
-    Background color of the main menu, on this function user can plot
-    images, play sounds, etc.
-    """
-    background_image.draw(surface)
+    def optionsMenu(self, paleLavander, lightRed, green , event):
+        mouse = pygame.mouse.get_pos()
 
+        controlsButton = button(self.window,paleLavander,45,240,100,50,"CTRLS")
+        returnButton = button(self.window,paleLavander,45,430,100,50,"BACK")
 
-def main(test: bool = False) -> None:
-    """
-    Main program.
+        controlsButton.draw()
+        returnButton.draw()
 
-    :param test: Indicate function is being tested
-    """
-    global main_menu
-    global sound
-    global surface
+        if controlsButton.hover(mouse):
+            controlsButton.color = green
+            controlsButton.draw()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                self.stage = "controlsMenu"
 
-    # création de la fenetre
-    surface = create_example_window( 'POKEMON', WINDOW_SIZE)
-    clock = pygame.time.Clock()
+        if returnButton.hover(mouse):
+            returnButton.color = green
+            returnButton.draw()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                self.stage = "mainMenu"
 
-    # Create menus: Main menu
-    main_menu_theme = pygame_menu.themes.THEME_ORANGE.copy()
-    main_menu_theme.set_background_color_opacity(0.5)  # 50% opacity
+    # IT IS MISSING THE OPTION OF CHANGING THE CONTROLS!!!!!!!!
+    def controlsMenu(self,paleLavander,lightRed,green,event):
+        mouse = pygame.mouse.get_pos()
 
-    main_menu = pygame_menu.Menu(
-        height=WINDOW_SIZE[1] * 0.5,
-        onclose=pygame_menu.events.EXIT,  # PEUT UTILISER LA TOUCHE ECHAP POUR QUITTER
-        theme=main_menu_theme,
-        title='Menu',
-        width=WINDOW_SIZE[0] * 0.5
-    )
-#application de l'image de fond lorsqu'on appuie sur la premiere rubrique 
-    theme_bg_image = main_menu_theme.copy()
-    theme_bg_image.background_color = pygame_menu.BaseImage(
-        image_path='background.jpg'
-    )
+        arrowsImage = pygame.transform.scale(pygame.image.load('image/background.jpg'),(150,100))
+        wasdImage = pygame.transform.scale(pygame.image.load('image/pokeball.jpg'),(150,100))
 
-    #on configure la rubrique commencer
-    theme_bg_image.title_font_size = 25
-    menu_with_bg_image = pygame_menu.Menu(
-        height=WINDOW_SIZE[1] * 0.7,
-        onclose=pygame_menu.events.EXIT,
-        theme=theme_bg_image,
-        title='Commencer',
-        width=WINDOW_SIZE[0] * 0.8
-    )
-    #on configure ce que l'on peut trouver dans la rubrique "commencer"
-    menu_with_bg_image.add.button('Retour', pygame_menu.events.BACK)
+        self.window.blit(arrowsImage,(75,300))
+        self.window.blit(wasdImage,(375,300))
 
-#on configure la taille de nos onglets
-    widget_colors_theme = pygame_menu.themes.THEME_ORANGE.copy()
-    widget_colors_theme.widget_margin = (0, 10)
-    widget_colors_theme.widget_padding = 0
-    widget_colors_theme.widget_selection_effect.margin_xy(10, 5)
-    widget_colors_theme.widget_font_size = 20
-    widget_colors_theme.set_background_color_opacity(0.5)  # 50% opaque
-    widget_colors_theme.set_background_image(image_path='background.jpg')
-#on creer la rubrique pokédex lorqu'on appuie sur le celui-ci 
-    widget_colors = pygame_menu.Menu(
-        height=WINDOW_SIZE[1] * 0.7,
-        theme=widget_colors_theme,
-        title='Pokédex',
-        width=WINDOW_SIZE[0] * 0.8
-    )
+        returnButton = button(self.window, paleLavander, 450,500,100,50,"BACK")
+        returnButton.draw()
 
-    button_image = pygame_menu.BaseImage(pygame_menu.baseimage.IMAGE_EXAMPLE_CARBON_FIBER)
+        if returnButton.hover(mouse):
+            returnButton.color = green
+            returnButton.draw()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                self.stage = "optionsMenu"
 
-    widget_colors.add.button('Opaque color button',
-                             background_color=(100, 100, 100))
-   
-
-    main_menu.add.button('Commencer', menu_with_bg_image)
-    main_menu.add.button('Pokédex', widget_colors)
-    main_menu.add.button('Another fancy button', lambda: print('This button has been pressed'))
-    main_menu.add.button('Quit', pygame_menu.events.EXIT)
-
-    # Main loop
-    while True:
-
-        # Tick
-        clock.tick(FPS)
-
-        # Main menu
-        main_menu.mainloop(surface, main_background, disable_loop=test, fps_limit=FPS)
-
-        # Flip surface
-        pygame.display.flip()
-
-        # At first loop returns
-        if test:
-            break
-
-
-if __name__ == '__main__':
-    main()
+    def game(self,event):
+        keys = pygame.key.get_pressed()
+        self.bgImage = pygame.image.load('images/backgrounds/map.png')
