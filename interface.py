@@ -1,28 +1,49 @@
 import pygame
+import os
 pygame.init()
 
-#generer la fenetre de notre jeu 
+#on creer la fenetre 
+screen_width = 1280
+screen_height = 720
 
+screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("Pokemon")
-screen = pygame.display.set_mode((1280,1024))
 
-#importer l'image pour charger l'arriere plan de notre jeu 
-background = pygame.image.load('image/fond.jpg')
+#variable du jeu 
 
-running = True
+game_paused = False
 
-#boucle tant que condition est vrai 
-while running:
-    #appliquer l'arriere plan de notre jeu 
+background = pygame.image.load(os.path.join('image/fond.jpg'))
+
+#font 
+font = pygame.font.SysFont("arialblack", 40)
+
+#couleurs
+
+TEXT_COL = (255, 255, 255)
+
+
+def draw_text(text, font, text_col, x, y):
+    img = font.render(text, True, text_col)
+    screen.blit(img, (x, y))
+
+run = True
+while run:
+    screen.fill((52, 78, 91))
+
     screen.blit(background, (0,0))
-
-    #mettre à jour l'écran 
-    pygame.display.flip()
-
-    #si le joueur ferme la fenetre 
+    #check si le jeu est en pause 
+    if  game_paused == True:
+        pass
+    else:
+        draw_text("Tapez espace pour mettre en Pause", font, TEXT_COL, 300, 150)
+        
     for event in pygame.event.get():
-        #verifier que l'evenement est fermeture de fenetre 
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                game_paused = True
         if event.type == pygame.QUIT:
-            running = False
-            pygame.quit()
-            print("Fermeture du jeu")
+            run = False
+
+    pygame.display.update()
+pygame.QUIT()
