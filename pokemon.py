@@ -1,37 +1,16 @@
-class Pokemon:
-    def __init__(self, nom, pv, niveau, puissance_attaque, defense):
-        self.__nom = nom 
-        self.__pv = pv 
-        self.__niveau = niveau 
-        self.__puissance_attaque = puissance_attaque
-        self.__defense = defense
-
-    def get_nom(self):
-        return self.__nom 
-    
-    def set_nom(self, nom):
-        self.__nom = nom 
-
-    def get_pv(self):
-        return self.__pv
-    
-    def set_pv(self, pv):
-        self.__pv = pv 
-
-    def get_niveau(self): 
-        return self.__niveau 
-    
-    def set_niveau(self, niveau):
-        self._niveau = niveau 
-
-    def get_puissance_attaque(self):
-        return self.__puissance_attaque
-    
-    def set_puissance_attaque(self, puissance_attaque):
-        self.__puissance_attaque = puissance_attaque
-
-    def get_defense(self):
-        return self.__defense
-    
-    def set_defense(self, defense):
-        self.__defense = defense
+class Pokémon :
+    def __init__(self, nom, pv, niveau, puissance_attaque, defense, type):
+        self.nom = nom 
+        self.pv = pv 
+        self.niveau = niveau 
+        self.puissance_attaque = puissance_attaque
+        self.defense = defense 
+        self.type = type 
+        
+    def afficher_informations(self):
+        print(f"Nom : {self.nom}")
+        print(f"Points de vie :  {self.pv}")
+        print(f"Niveau : {self.niveau}")
+        print(f"Puissance d'attaque: {self.puissance_attaque}")
+        print(f"Défense: {self.defense}")
+        print(f"Type : {self.type }")

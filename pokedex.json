@@ -1,20 +1,220 @@
-{
-    "types": [
-        "eau",
-        "feu",
-        "plante",
-        "insecte",
-        "normal",
-        "vol",
-        "éléectrique",
-        "sol",
-        "roche",
-        "glace",
-        "combat ",
-        "poison",
-        "psy",
-        "spectre",
-        "tenebres",
-        "vol"
-    ]
-}
+[
+    {
+        "nom": "Carapuce",
+        "points_de_vie": 95,
+        "niveau": 5,
+        "type": "Eau",
+        "puissance_attaque": 18,
+        "defense": 20
+    },
+
+    {
+        "nom": "Chenipan",
+        "points_de_vie": 70,
+        "niveau": 3,
+        "type": "Insecte",
+        "puissance_attaque": 15,
+        "defense": 10
+    },
+    {
+        "nom": "Roucool",
+        "points_de_vie": 85,
+        "niveau": 5,
+        "type": "Vol",
+        "puissance_attaque": 22,
+        "defense": 14
+    },
+    {
+        "nom": "Rattata",
+        "points_de_vie": 75,
+        "niveau": 4,
+        "type": "Normal",
+        "puissance_attaque": 20,
+        "defense": 12
+    },
+    {
+        "nom": "Piafabec",
+        "points_de_vie": 90,
+        "niveau": 5,
+        "type": "Vol",
+        "puissance_attaque": 21,
+        "defense": 16
+    },
+    {
+        "nom": "Abo",
+        "points_de_vie": 80,
+        "niveau": 4,
+        "type": "Poison",
+        "puissance_attaque": 19,
+        "defense": 15
+    },
+    {
+        "nom": "Pikachu",
+        "points_de_vie": 80,
+        "niveau": 5,
+        "type": "Électrique",
+        "puissance_attaque": 22,
+        "defense": 18
+    },
+    {
+        "nom": "Sabelette",
+        "points_de_vie": 85,
+        "niveau": 5,
+        "type": "Sol",
+        "puissance_attaque": 21,
+        "defense": 17
+    },
+    {
+        "nom": "Mélofée",
+        "points_de_vie": 95,
+        "niveau": 5,
+        "type": "Fée",
+        "puissance_attaque": 18,
+        "defense": 16
+    },
+    {
+        "nom": "Goupix",
+        "points_de_vie": 88,
+        "niveau": 5,
+        "type": "Feu",
+        "puissance_attaque": 23,
+        "defense": 15
+    },
+    {
+        "nom": "Rondoudou",
+        "points_de_vie": 90,
+        "niveau": 5,
+        "type": "Normal",
+        "puissance_attaque": 20,
+        "defense": 14
+    },
+    {
+        "nom": "Nosferapti",
+        "points_de_vie": 78,
+        "niveau": 4,
+        "type": "Poison",
+        "puissance_attaque": 17,
+        "defense": 16
+    },
+    {
+        "nom": "Mystherbe",
+        "points_de_vie": 85,
+        "niveau": 5,
+        "type": "Plante",
+        "puissance_attaque": 19,
+        "defense": 18
+    },
+    {
+        "nom": "Paras",
+        "points_de_vie": 80,
+        "niveau": 4,
+        "type": "Insecte",
+        "puissance_attaque": 18,
+        "defense": 15
+    },
+    {
+        "nom": "Mimitoss",
+        "points_de_vie": 88,
+        "niveau": 5,
+        "type": "Insecte",
+        "puissance_attaque": 20,
+        "defense": 16
+    },
+    {
+        "nom": "Taupiqueur",
+        "points_de_vie": 92,
+        "niveau": 5,
+        "type": "Sol",
+        "puissance_attaque": 21,
+        "defense": 17
+    },
+    {
+        "nom": "Miaouss",
+        "points_de_vie": 85,
+        "niveau": 5,
+        "type": "Normal",
+        "puissance_attaque": 22,
+        "defense": 14
+    },
+    {
+        "nom": "Psykokwak",
+        "points_de_vie": 92,
+        "niveau": 5,
+        "type": "Eau",
+        "puissance_attaque": 19,
+        "defense": 18
+    },
+    {
+        "nom": "Ferosinge",
+        "points_de_vie": 78,
+        "niveau": 4,
+        "type": "Combat",
+        "puissance_attaque": 21,
+        "defense": 15
+    },
+    {
+        "nom": "Caninos",
+        "points_de_vie": 95,
+        "niveau": 5,
+        "type": "Feu",
+        "puissance_attaque": 23,
+        "defense": 16
+    },
+    {
+        "nom": "Ptitard",
+        "points_de_vie": 85,
+        "niveau": 5,
+        "type": "Eau",
+        "puissance_attaque": 20,
+        "defense": 15
+    },
+    {
+        "nom": "Abra",
+        "points_de_vie": 75,
+        "niveau": 4,
+        "type": "Psy",
+        "puissance_attaque": 18,
+        "defense": 12
+    },
+    {
+        "nom": "Machoc",
+        "points_de_vie": 100,
+        "niveau": 5,
+        "type": "Combat",
+        "puissance_attaque": 25,
+        "defense": 20
+    },
+    {
+        "nom": "Osselait",
+        "points_de_vie": 90,
+        "niveau": 5,
+        "type": "Sol",
+        "puissance_attaque": 22,
+        "defense": 17
+    },
+    {
+        "nom": "Tadmorv",
+        "points_de_vie": 85,
+        "niveau": 5,
+        "type": "Poison",
+        "puissance_attaque": 21,
+        "defense": 18
+    },
+    {
+        "nom": "Tritox",
+        "points_de_vie": 88,
+        "niveau": 5,
+        "type": "Poison",
+        "puissance_attaque": 20,
+        "defense": 16
+    },
+    {
+        "nom": "Sulfura",
+        "points_de_vie": 120,
+        "niveau": 5,
+        "type": "Feu",
+        "puissance_attaque": 30,
+        "defense": 25
+    }
+
+]
